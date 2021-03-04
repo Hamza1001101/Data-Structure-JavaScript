@@ -1,7 +1,7 @@
 /**
  * * 2- Stack
  * * Stack is a collection of items that follows the principle
- * * of "Last in, first out". 
+ * * of "Last in, first out". (LIFO)
  */
 
 

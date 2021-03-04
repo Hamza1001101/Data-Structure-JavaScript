@@ -54,6 +54,9 @@ console.log(q.peek());
  * * 2- Priority Queue
  * * A special type of queue in which each element is associated with a
  * * priority and is served according to its priority.
+ * 
+ * ! This is not how you implement priorityqueue in real world. 
+ *  ? In real world you implement PQ using hashtables or Heaps. 
  */
 
 function ceratePriorityQueue() {

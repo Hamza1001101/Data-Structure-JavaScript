@@ -2,6 +2,8 @@
  * * 2- Stack
  */
 
+
+
 function createStack() {
   const arrayStack = [];
 
@@ -11,7 +13,7 @@ function createStack() {
   return {
     //Append new element to the array
     push(item) {
-      arrayStack.push();
+      arrayStack.push(item);
     },
     //remove the last element
     pop() {
@@ -29,3 +31,12 @@ function createStack() {
     },
   };
 }
+
+const gettingReady = createStack();
+
+gettingReady.push("eat breakfast");
+gettingReady.push("brush teeth");
+gettingReady.push("take a shower");
+
+gettingReady.pop();
+console.log(gettingReady.peek());

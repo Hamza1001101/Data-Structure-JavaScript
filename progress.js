@@ -28,7 +28,7 @@ function Queue() {
     delete data[head];
     head++;
     return item;
-  };
+  }; 
   this.peek = function () {
     return data[head];
   };
@@ -53,3 +53,4 @@ function Stack() {
     return result;
   };
 }
+ 

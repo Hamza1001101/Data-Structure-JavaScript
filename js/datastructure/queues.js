@@ -13,7 +13,7 @@
 function createQueue() {
   const queue = [];
   return {
-    // add or enqueue
+    // add or enqueue O(n)
     enqueue(item) {
       queue.unshift(item);
     },

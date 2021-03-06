@@ -116,7 +116,7 @@ readObj(restaurant.delivery);
 
 /**
  * *The Spread Operator (Unpack array elements)
- * * Can be used all iterables. 
+ * * Can be used all iterables.
  * ? The difference bte spread operator and destructuring is
  * ? The spread operator dont create a new element and it
  * ? takes out all the element from the array
@@ -140,57 +140,48 @@ console.log(letters);
 const [a, b, ...rest] = [2, 6, "Somalia", "Somaliland", "Sweden"];
 console.log(rest);
 
-const removeDuplicates = (nums) => {
-  for (let i = 0; i < nums.length; i++) {
-    if (nums[i] === nums[i + 1]) {
-      nums.splice(i, 1);
-      i--;
-    }
-  }
-  return nums.length;
-};
-console.log(removeDuplicates([1, 2, 1]));
-
-
-
-
 // XOR exclusive OR
-const fan = nums => {
-  return nums.reduce((prev, acc) => prev ^ acc, 0)
-}
+const fan = (nums) => {
+  return nums.reduce((prev, acc) => prev ^ acc, 0);
+};
 console.log(fan([4, 1, 2, 1, 2]));
 
 /**
- * * this is called short-circuit evaluation. 
- * * JS is just gonna return the value thats yeilds thruth. 
+ * * this is called short-circuit evaluation.
+ * * JS is just gonna return the value thats yeilds thruth.
  */
-console.log(3 || 'jonas')
-console.log(undefined || null)
+console.log(3 || "jonas");
+console.log(undefined || null);
 
-console.log('Hamza' && 5)
+console.log("Hamza" && 5);
 
-
-const items = ['cooking', 'eating', 'reading', 'cooking']
+const items = ["cooking", "eating", "reading", "cooking"];
 
 for (const iterator of items.entries()) {
-  console.log(iterator)
+  console.log(iterator);
 }
-
-
 
 let hamza = "La La Land";
 let warsame = "Moonlight";
 [hamza, warsame] = [warsame, hamza];
 
-console.log('object', hamza)
-
+console.log("object", hamza);
 
 function sumTwo(numbers, target) {
-
-  for (let left = 0, right = numbers.length - 1; left < right;){
-    let sum = numbers[left] + numbers[right]
-    if (sum === target) return [++left, ++right]
-    else sum > target ? right-- : left++
+  for (let left = 0, right = numbers.length - 1; left < right; ) {
+    let sum = numbers[left] + numbers[right];
+    if (sum === target) return [++left, ++right];
+    else sum > target ? right-- : left++;
   }
 }
 
+/**
+ * Strings
+ *
+ */
+
+const filterOut = (arr) => {
+  return arr.filter(
+    (item, i) => !(arr[i] === arr[i + 1] || arr[i] === arr[i - 1])
+  );
+};

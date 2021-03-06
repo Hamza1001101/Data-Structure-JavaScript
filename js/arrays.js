@@ -25,3 +25,12 @@ function fillArray(arr1) {
 }
 
 console.log(fillArray([2, 4, 6, 89, 3]));
+
+/**
+ * * Deleting Arrays
+ * * using delete keyword would not effect of the array length. 
+ */
+
+let delArr = [1, 3, 46, 7, 4, 9, 7, 9]
+delete delArr[2]
+console.log(delArr.length)

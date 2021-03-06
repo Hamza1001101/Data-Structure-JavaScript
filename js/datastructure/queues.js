@@ -39,7 +39,7 @@ function createQueue() {
 }
 
 const q = createQueue();
-console.log(q.isEmpty());
+console.log(q.isEmpty()); 
 
 q.enqueue("Make an egghead lesson");
 q.enqueue("Help others to Learn");

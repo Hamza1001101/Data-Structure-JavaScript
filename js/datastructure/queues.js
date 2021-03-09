@@ -1,5 +1,5 @@
 /**
- * * DataStructure adn Algorithms. In JS.
+ * * DataStructure and Algorithms. In JS.
  */
 
 /**
@@ -39,7 +39,7 @@ function createQueue() {
 }
 
 const q = createQueue();
-console.log(q.isEmpty()); 
+console.log(q.isEmpty());
 
 q.enqueue("Make an egghead lesson");
 q.enqueue("Help others to Learn");
@@ -100,3 +100,4 @@ qq.dequeue();
 
 qq.enqueue("Emergency tast!", true);
 console.log(qq.peek());
+

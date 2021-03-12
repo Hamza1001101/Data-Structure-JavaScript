@@ -54,8 +54,31 @@ function reverseStrInplace(str) {
 }
 console.log(reverseStrInplace([90, 72, 99, 35]));
 
+/**
+ * * This runs O(n^2)
+ * @param {} n 
+ * @returns 
+ */
 function fibonachi(n) {
   if (n === 0) return 0
   else if (n === 1) return 1
   return fibonachi(n-1) + fibonachi(n-2)
 }
+
+/**
+ * * This runs O(n)
+ * @param {* int} n 
+ * @param {* Array} cache 
+ * @returns 
+ */
+function fibonachi2(n, cache) {
+  if (n === 0) return 0;
+  else if (n === 1) return 1;
+
+  //return cache value if it already exists
+  if (cache[n] != 0) return cache[n];
+  cache[n] = fibonachi2(n - 1) + fibonachi2(n - 2);
+  return cache[n];
+}
+
+console.log(fibonachi(8));

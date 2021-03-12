@@ -43,33 +43,31 @@ console.log(result2);
  */
 
 function reverseStrInplace(str) {
-  
-  for (let left = 0, right = str.length - 1; left < right;) {
-
-    [str[left], str[right]] = [str[right], str[left]]
-    left++
-    right--
+  for (let left = 0, right = str.length - 1; left < right; ) {
+    [str[left], str[right]] = [str[right], str[left]];
+    left++;
+    right--;
   }
-  return str
+  return str;
 }
 console.log(reverseStrInplace([90, 72, 99, 35]));
 
 /**
  * * This runs O(n^2)
- * @param {} n 
- * @returns 
+ * @param {} n
+ * @returns
  */
 function fibonachi(n) {
-  if (n === 0) return 0
-  else if (n === 1) return 1
-  return fibonachi(n-1) + fibonachi(n-2)
+  if (n === 0) return 0;
+  else if (n === 1) return 1;
+  return fibonachi(n - 1) + fibonachi(n - 2);
 }
 
 /**
  * * This runs O(n)
- * @param {* int} n 
- * @param {* Array} cache 
- * @returns 
+ * @param {* int} n
+ * @param {* Array} cache
+ * @returns
  */
 function fibonachi2(n, cache) {
   if (n === 0) return 0;
@@ -89,4 +87,36 @@ const isPalindrome = (x) => {
   return x === parseInt(reversed, 10);
 };
 
-console.log(isPalindrome(12321));
+/**
+ * * Not using strings
+ * @param { int} x
+ */
+const isPalindrome2 = (x) => {
+  if (x < 0) return false;
+
+  const logarithmAnswer = Math.log10(x);
+  const totalDigits = Math.floor(logarithmAnswer) + 1;
+
+  let mostSignificantExtractionMask = Math.pow(10, totalDigits - 1);
+
+  for (let i = 0; i < totalDigits / 2; i++) {
+    const mostSignificantDigit = Math.floor(x / mostSignificantExtractionMask);
+    const onesPlaceDigit = x % 10;
+
+    if (mostSignificantDigit !== onesPlaceDigit) return false;
+
+    // Removing most significant digit: 999 % 100 = 99
+    x %= mostSignificantExtractionMask;
+
+    /*
+     * Removing the ones place digit: 99 / 10 = 9.9 => 9
+     */
+    x = Math.floor(x / 10);
+
+    // Remove 2 0's from the mask since we just lost 2 digits
+    mostSignificantExtractionMask /= 100;
+  }
+
+  return true;
+};
+console.log(isPalindrome2(12321));

@@ -37,3 +37,25 @@ const voteReducer = function (tally, vote) {
 
 const result2 = votes.reduce(voteReducer, myObject);
 console.log(result2);
+
+/**
+ * * Two pointers (reverseString in place)
+ */
+
+function reverseStrInplace(str) {
+  
+  for (let left = 0, right = str.length - 1; left < right;) {
+
+    [str[left], str[right]] = [str[right], str[left]]
+    left++
+    right--
+  }
+  return str
+}
+console.log(reverseStrInplace([90, 72, 99, 35]));
+
+function fibonachi(n) {
+  if (n === 0) return 0
+  else if (n === 1) return 1
+  return fibonachi(n-1) + fibonachi(n-2)
+}

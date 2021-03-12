@@ -82,3 +82,11 @@ function fibonachi2(n, cache) {
 }
 
 console.log(fibonachi(8));
+
+const isPalindrome = (x) => {
+  // 8899 --> 9988
+  let reversed = x.toString().split("").reverse().join("");
+  return x === parseInt(reversed, 10);
+};
+
+console.log(isPalindrome(12321));

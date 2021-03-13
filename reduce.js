@@ -120,3 +120,36 @@ const isPalindrome2 = (x) => {
   return true;
 };
 console.log(isPalindrome2(12321));
+
+
+/**
+ * * Looping thru integers without converting the to String
+ */
+
+const numbers = 12345687
+const digits = []
+while (numbers > 0) {
+  digits.push(numbers % 10)
+  numbers = Math.floor(numbers/10)
+}
+// digits --> 78654321
+console.log(digits.reverse())
+
+function realOne(left, right) {
+  let res = [];
+  for (let i = left; i <= right; i++) {
+    if(isSelfDividing(i)) res.push(i)
+  }
+  return res;
+}
+realOne(1, 22);
+
+function isSelfDividing(n) {
+  let num = n.toString();
+  for (let digit of num) {
+    if (n % digit !== 0 || digit === 0) return false;
+    console.log(digit);
+  }
+  return true;
+}
+console.log(isSelfDividing(128));

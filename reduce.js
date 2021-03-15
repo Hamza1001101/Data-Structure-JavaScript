@@ -187,6 +187,76 @@ function stackFactory() {
 }
 
 /**
+ * * Implementing with Stack using LinkedList
+ */
+class Node {
+  constructor(value) {
+    this.value = value
+    this.next = null
+  }
+}
+class Stack {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+
+  //push method
+  push(value) {
+    let node = new Node(value);
+    if (this.size === 0) {
+      this.first = node;
+      this.last = node;
+    } else if (this.size >= 1) {
+      let currFirst = this.first;
+      this.first = node;
+      this.first.next = currFirst;
+    }
+    return this.size++;
+  }
+  //peek method
+  
+}
+
+const myStack = new Stack
+myStack.push('Hello')
+myStack.push('Somalia')
+console.log(myStack)
+/**
  * * Don't build queues with arrays. Its O(n)
  * * Better is to use LinkedList because O(1)
  */
+//creates a Queue class to store the elements/nodes of the Queue
+ class Queue {
+   constructor () {
+     this.first = null;
+     this.last = null;
+     this.size = 0;
+   }
+   //enqueues a node
+   enqueue(val) {
+     let node = new Node(val);
+     if (this.size === 0) {
+       this.first = node;
+       this.last = node;
+     } else {
+       this.last.next = node;
+       this.last = node;
+     }
+     return this.size++;
+   }
+  //dequeues a node 
+  dequeue () {
+    if (!this.first) {
+      return null;
+    }
+    let temp = this.first;
+    if (this.first === this.last){
+      this.last = null;
+    }
+    this.first = this.first.next;
+    this.size--;
+    return temp.value;
+  }
+ }

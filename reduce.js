@@ -234,7 +234,7 @@ class Stack {
   }
 }
 
-const myStack = new Stack
+const myStack = new Stack();
 myStack.push('Hello')
 myStack.push('Somalia')
 myStack.push("sofia");
@@ -278,5 +278,13 @@ console.log(myStack.peek());
     this.first = this.first.next;
     this.size--;
     return temp.value;
-  }
- }
+   }
+   peek() {
+     return this.first
+   }
+}
+const myQueue = new Queue();
+myQueue.enqueue('warsame')
+myQueue.enqueue('computer')
+
+console.log(myQueue.peek())

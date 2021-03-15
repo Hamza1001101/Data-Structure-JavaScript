@@ -186,6 +186,32 @@ function stackFactory() {
   };
 }
 /**
+ * * Implementing stack using LinkedList
+ */
+//Node class and implement LinkedList
+class Node {
+  constructor(data) {
+
+    this.data = data
+    this.next = null
+  }
+}
+
+class Stack {
+  constructor() {
+    this.top= null
+  }
+  push(item) {
+    let node = new Node(item)
+    if (this.top) {
+      node.next = this.top
+      this.top= node
+    }
+    else this.top = node
+  }
+}
+
+/**
  * * Don't build queues with arrays. Its O(n)
  * * Better is to use LinkedList because O(1)
  */

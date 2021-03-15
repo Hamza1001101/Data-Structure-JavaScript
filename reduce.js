@@ -135,21 +135,38 @@ while (numbers > 0) {
 // digits --> 78654321
 console.log(digits.reverse())
 
-function realOne(left, right) {
-  let res = [];
-  for (let i = left; i <= right; i++) {
-    if(isSelfDividing(i)) res.push(i)
-  }
-  return res;
-}
-realOne(1, 22);
 
-function isSelfDividing(n) {
-  let num = n.toString();
-  for (let digit of num) {
-    if (n % digit !== 0 || digit === 0) return false;
-    console.log(digit);
+
+/**
+ * * Building Stack and queues
+ * * Building with Closure
+ */
+
+function stackFactory() {
+  const stack = []
+
+  return {
+    push(item) {
+      return stack.push(item)
+    },
+    
+    pop() {
+      return stack.pop()
+    },
+    peek() {
+      return stack[stack.length-1]
+    },
+    isEmpty() {
+      return stack.length===0
+    },
+    get length() {
+      return stack.length
+    }
+
   }
-  return true;
 }
-console.log(isSelfDividing(128));
+/**
+ * * Don't build queues with arrays. Its O(n)
+ * * Better is to use LinkedList because O(1)
+ */
+

@@ -286,5 +286,15 @@ console.log(myStack.peek());
 const myQueue = new Queue();
 myQueue.enqueue('warsame')
 myQueue.enqueue('computer')
-
+myQueue.dequeue();
+myQueue.enqueue("mobiless");
 console.log(myQueue.peek())
+
+
+var MyQueue = function () {
+  const queue = [];
+};
+MyQueue.prototype.push = function (x) {
+  this.queue.push(x);
+};
+console.log(MyQueue.queue);

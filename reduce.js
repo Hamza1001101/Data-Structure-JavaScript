@@ -192,7 +192,7 @@ function stackFactory() {
 class Node {
   constructor(value) {
     this.value = value
-    this.next = null
+    this.next = null;
   }
 }
 class Stack {
@@ -216,13 +216,33 @@ class Stack {
     return this.size++;
   }
   //peek method
-  
+  peek() {
+    return this.last;
+  }
+  //pop
+  pop() {
+    if (!this.first) return null;
+    if (this.first === this.last) return null;
+    const temp = this.last;
+    this.last = this.first.next;
+    this.size--;
+    return this;
+  }
+  //isEmpty
+  isEmpty() {
+    return !this.size;
+  }
 }
 
 const myStack = new Stack
 myStack.push('Hello')
 myStack.push('Somalia')
-console.log(myStack)
+myStack.push("sofia");
+myStack.push("Mobile");
+myStack.pop();
+console.log(myStack.peek());
+
+
 /**
  * * Don't build queues with arrays. Its O(n)
  * * Better is to use LinkedList because O(1)

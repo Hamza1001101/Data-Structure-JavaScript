@@ -121,21 +121,42 @@ const isPalindrome2 = (x) => {
 };
 console.log(isPalindrome2(12321));
 
-
 /**
  * * Looping thru integers without converting the to String
  */
 
-const numbers = 12345687
-const digits = []
+const numbers = 12345687;
+const digits = [];
 while (numbers > 0) {
-  digits.push(numbers % 10)
-  numbers = Math.floor(numbers/10)
+  digits.push(numbers % 10);
+  numbers = Math.floor(numbers / 10);
 }
 // digits --> 78654321
-console.log(digits.reverse())
+console.log(digits.reverse());
 
-
+/**
+ * * IMPLEMENTING STACKS Using class
+ */
+class stackFac {
+  constructor() {
+    this.stack = [];
+  }
+  push(item) {
+    return this.stack.push(item);
+  }
+  pop() {
+    return this.stack.pop();
+  }
+  peek() {
+    return this.stack[this.stack.length - 1];
+  }
+  isEmpty() {
+    return !this.stack.length;
+  }
+  get length() {
+    return this.stack.length;
+  }
+}
 
 /**
  * * Building Stack and queues
@@ -143,30 +164,28 @@ console.log(digits.reverse())
  */
 
 function stackFactory() {
-  const stack = []
+  const stack = [];
 
   return {
     push(item) {
-      return stack.push(item)
+      return stack.push(item);
     },
-    
+
     pop() {
-      return stack.pop()
+      return stack.pop();
     },
     peek() {
-      return stack[stack.length-1]
+      return stack[stack.length - 1];
     },
     isEmpty() {
-      return stack.length===0
+      return stack.length === 0;
     },
     get length() {
-      return stack.length
-    }
-
-  }
+      return stack.length;
+    },
+  };
 }
 /**
  * * Don't build queues with arrays. Its O(n)
  * * Better is to use LinkedList because O(1)
  */
-

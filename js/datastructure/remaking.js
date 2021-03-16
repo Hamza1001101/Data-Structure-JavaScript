@@ -50,6 +50,38 @@ myStack.push("REMAKING");
 myStack.push("rEDOING");
 myStack.push("WATER");
 myStack.pop();
+
 myStack.pop();
-myStack.pop();
-console.log(myStack.isEmpty());
+myStack.isEmpty();
+
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.size = 0;
+  }
+  enqueue(item) {
+    const newNode = new Node(item);
+
+    if (!this.first) {
+      this.first = newNode;
+      this.last = newNode;
+    } else if (this.size >= 1) {
+      const holdingPointer = this.top;
+      this.top = newNode;
+      this.top.next = holdingPointer;
+    }
+    this.size++;
+    return this;
+  }
+  peek() {
+    return this.first;
+  }
+}
+const myQueue = new Queue();
+myQueue.enqueue("Hörlurar");
+myQueue.enqueue("Charger");
+myQueue.enqueue("Firee");
+
+
+console.log(myQueue.peek());

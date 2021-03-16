@@ -27,13 +27,29 @@ class Stack {
     this.size++;
     return this;
   }
+  pop() {
+    if (!this.top) return null;
+    if (this.top === this.bottom) {
+      this.bottom = null;
+    }
+    const currentPointer = this.top;
+    this.top = this.top.next;
+    this.size--;
+    return this;
+  }
   peek() {
     return this.top;
-  }
+    }
+    isEmpty() {
+        return !this.top
+    }
 }
 
 const myStack = new Stack();
 myStack.push("REMAKING");
 myStack.push("rEDOING");
 myStack.push("WATER");
-console.log(myStack.peek());
+myStack.pop();
+myStack.pop();
+myStack.pop();
+console.log(myStack.isEmpty());

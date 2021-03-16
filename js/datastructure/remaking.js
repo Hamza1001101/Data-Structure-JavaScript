@@ -39,10 +39,10 @@ class Stack {
   }
   peek() {
     return this.top;
-    }
-    isEmpty() {
-        return !this.top
-    }
+  }
+  isEmpty() {
+    return !this.top;
+  }
 }
 
 const myStack = new Stack();
@@ -62,17 +62,26 @@ class Queue {
   }
   enqueue(item) {
     const newNode = new Node(item);
-
     if (!this.first) {
       this.first = newNode;
       this.last = newNode;
     } else if (this.size >= 1) {
-      const holdingPointer = this.top;
-      this.top = newNode;
-      this.top.next = holdingPointer;
+      this.last.next = newNode;
+      this.last = newNode;
     }
     this.size++;
     return this;
+  }
+
+  dequeue() {
+    if (!this.first) return null;
+    if (this.first === this.last) {
+      this.first = null;
+    }
+    const temp = this.first;
+    this.first = this.first.next;
+    this.size--;
+    return temp;
   }
   peek() {
     return this.first;
@@ -82,6 +91,6 @@ const myQueue = new Queue();
 myQueue.enqueue("Hörlurar");
 myQueue.enqueue("Charger");
 myQueue.enqueue("Firee");
-
-
+myQueue.dequeue();
+myQueue.dequeue();
 console.log(myQueue.peek());

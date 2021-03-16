@@ -249,7 +249,7 @@ console.log(myStack.peek());
  */
 //creates a Queue class to store the elements/nodes of the Queue
  class Queue {
-   constructor () {
+   constructor() {
      this.first = null;
      this.last = null;
      this.size = 0;
@@ -266,23 +266,24 @@ console.log(myStack.peek());
      }
      return this.size++;
    }
-  //dequeues a node 
-  dequeue () {
-    if (!this.first) {
-      return null;
-    }
-    let temp = this.first;
-    if (this.first === this.last){
-      this.last = null;
-    }
-    this.first = this.first.next;
-    this.size--;
-    return temp.value;
+
+   //dequeues a node
+   dequeue() {
+     if (!this.first) {
+       return null;
+     }
+     let temp = this.first;
+     if (this.first === this.last) {
+       this.last = null;
+     }
+     this.first = this.first.next;
+     this.size--;
+     return temp.value;
    }
    peek() {
-     return this.first
+     return this.first;
    }
-}
+ }
 const myQueue = new Queue();
 myQueue.enqueue('warsame')
 myQueue.enqueue('computer')
@@ -290,11 +291,3 @@ myQueue.dequeue();
 myQueue.enqueue("mobiless");
 console.log(myQueue.peek())
 
-
-var MyQueue = function () {
-  const queue = [];
-};
-MyQueue.prototype.push = function (x) {
-  this.queue.push(x);
-};
-console.log(MyQueue.queue);

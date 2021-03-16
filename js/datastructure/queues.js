@@ -88,7 +88,7 @@ function ceratePriorityQueue() {
     },
     isEmpty() {
       return highPriorityQueue.isEmpty() && lowPriorityQueue.isEmpty();
-    },
+    }, 
   };
 }
 const qq = ceratePriorityQueue();

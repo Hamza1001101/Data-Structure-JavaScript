@@ -82,18 +82,3 @@ console.log(ll.get(2));
 /**
  * * Bubble sort
  */
-
-const bubbleSort = (arr) => {
-
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = i + 1; j < arr.length; j++) {
-
-      if (arr[j] < arr[j+1]) {
-        [arr[j], arr[i]] = [arr[i], arr[j]]
-      }
-    }
-    return arr
-  }
-}
-
-console.log(bubbleSort([4,5,3,42,2]))

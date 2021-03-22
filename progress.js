@@ -26,20 +26,22 @@ class LinkedList {
     this.length++;
   }
   pop() {
-    if (this.isEmpty()) return null;
+    if (this.isEmpty()) {
+      return null;
+    }
     if (this.length === 1) {
-      const toRemove = this.head;
-      this.tail = null;
+      const nodeToRemove = this.head;
       this.head = null;
+      this.tail = null;
       this.length--;
-      return toRemove;
+      return nodeToRemove;
     } else {
       const nodeToRemove = this.tail;
       let current = this.head;
       let secondToLast;
       while (current) {
         if (current.next === this.tail) {
-          secondToLast = current;
+          secondToLast = current
           break;
         }
         current = current.next;
@@ -50,25 +52,21 @@ class LinkedList {
       return nodeToRemove;
     }
   }
-
   get(index) {
     if (index < 0 || index > this.length || this.isEmpty()) {
       return null 
     }
-    if (index == 0) {
-      return this.head
-    }
-    if (index === this.length - 1) {
-      return this.tail
-    }
+    if (index === 1) return this.head
+    if (index === this.length - 1) return this.tail
+    
     else {
-      let currentNode = this.head
       let iterator = 0
+      let current = this.head
       while (iterator < index) {
         iterator++
-        currentNode= currentNode.next
+        current = current.next
       }
-      return currentNode
+      return current
     }
   }
 }
@@ -79,3 +77,23 @@ ll.push("brakfastr");
 ll.push("dinner");
 ll.push("protien");
 console.log(ll.get(2));
+
+
+/**
+ * * Bubble sort
+ */
+
+const bubbleSort = (arr) => {
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+
+      if (arr[j] < arr[j+1]) {
+        [arr[j], arr[i]] = [arr[i], arr[j]]
+      }
+    }
+    return arr
+  }
+}
+
+console.log(bubbleSort([4,5,3,42,2]))

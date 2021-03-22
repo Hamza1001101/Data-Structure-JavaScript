@@ -5,6 +5,12 @@ class Node {
   }
 }
 
+
+class Queue {
+  constructor() {}
+}
+
+
 class Stack {
   constructor() {
     this.top = null;
@@ -27,7 +33,7 @@ class Stack {
   pop() {
     if (!this.size) return null;
     else if (this.top === this.bottom) {
-      this.bottom = null;
+     this.bottom = null; 
     }
     this.top = this.top.next;
     this.size--;
@@ -48,4 +54,5 @@ stack.push("Lunch");
 stack.pop();
 stack.pop();
 stack.pop();
-console.log(stack.isEmpty());
+
+console.log(stack.peek());

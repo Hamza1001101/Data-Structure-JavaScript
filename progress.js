@@ -5,95 +5,77 @@ class Node {
   }
 }
 
-
-class Queue {
+class LinkedList {
   constructor() {
-    this.last = null;
-    this.first = null;
-    this.size = 0;
+    this.tail = null;
+    this.head = null;
+    this.length = 0;
   }
-  enqueue(item) {
-    const newNode = new Node(item);
-    if (!this.size) {
-      this.last = newNode;
-      this.first = newNode;
-    } else if (this.size >= 1) {
-      this.last.next = newNode;
-      this.last = newNode;
-    }
-    this.size++;
-    return this;
-  }
-  dequeue() {
-    if (!this.size) return null;
-    if (this.last === this.first) {
-      this.last = null;
-    }
-      this.first = this.first.next;
-    this.size--;
-    return this;
-  }
-  peek() {
-    return this.first
-  }
-}
-
-const queue = new Queue();
-queue.enqueue("Tea");
-queue.enqueue("Soda");
-queue.enqueue("Coffee");
-
-queue.dequeue();
-queue.dequeue()
-queue.dequeue();
-
-console.log(queue.peek());
-
-
-class Stack {
-  constructor() {
-    this.top = null;
-    this.bottom = null;
-    this.size = 0;
+  isEmpty() {
+    return !this.length;
   }
   push(item) {
     const newNode = new Node(item);
-    if (!this.size) {
-      this.bottom = newNode;
-      this.top = newNode;
-    } else if (this.size >= 1) {
-      const holder = this.top;
-      this.top = newNode;
-      this.top.next = holder;
+    if (this.isEmpty()) {
+      this.tail = newNode;
+      this.head = newNode;
+    } else if (this.length >= 1) {
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
-    this.size++;
-    return this;
+    this.length++;
   }
   pop() {
-    if (!this.size) return undefined;
-
-    if (this.top === this.bottom) {
-      this.bottom = null;
+    if (this.isEmpty()) return null;
+    if (this.length === 1) {
+      const toRemove = this.head;
+      this.tail = null;
+      this.head = null;
+      this.length--;
+      return toRemove;
+    } else {
+      const nodeToRemove = this.tail;
+      let current = this.head;
+      let secondToLast;
+      while (current) {
+        if (current.next === this.tail) {
+          secondToLast = current;
+          break;
+        }
+        current = current.next;
+      }
+      secondToLast.next = null;
+      this.tail = secondToLast;
+      this.length--;
+      return nodeToRemove;
     }
-    this.top = this.top.next;
-    this.size--;
-    return this;
   }
-  peek() {
-    return this.top;
-  }
-  isEmpty() {
-    return !this.size;
+
+  get(index) {
+    if (index < 0 || index > this.length || this.isEmpty()) {
+      return null 
+    }
+    if (index == 0) {
+      return this.head
+    }
+    if (index === this.length - 1) {
+      return this.tail
+    }
+    else {
+      let currentNode = this.head
+      let iterator = 0
+      while (iterator < index) {
+        iterator++
+        currentNode= currentNode.next
+      }
+      return currentNode
+    }
   }
 }
 
-const stack = new Stack();
-stack.push("Frukost");
-stack.push("pancake");
-stack.push("Lunch");
-
-stack.pop();
-stack.pop();
-stack.pop();
-
-console.log(stack.peek());
+const ll = new LinkedList();
+ll.push("Lunch");
+ll.push("brakfastr");
+ll.push("dinner");
+ll.push("protien");
+console.log(ll.get(2));

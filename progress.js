@@ -29,11 +29,25 @@ class Queue {
     if (this.last === this.first) {
       this.last = null;
     }
-    this.last = this.last.next;
+      this.first = this.first.next;
     this.size--;
     return this;
   }
+  peek() {
+    return this.first
+  }
 }
+
+const queue = new Queue();
+queue.enqueue("Tea");
+queue.enqueue("Soda");
+queue.enqueue("Coffee");
+
+queue.dequeue();
+queue.dequeue()
+queue.dequeue();
+
+console.log(queue.peek());
 
 
 class Stack {

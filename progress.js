@@ -7,7 +7,32 @@ class Node {
 
 
 class Queue {
-  constructor() {}
+  constructor() {
+    this.last = null;
+    this.first = null;
+    this.size = 0;
+  }
+  enqueue(item) {
+    const newNode = new Node(item);
+    if (!this.size) {
+      this.last = newNode;
+      this.first = newNode;
+    } else if (this.size >= 1) {
+      this.last.next = newNode;
+      this.last = newNode;
+    }
+    this.size++;
+    return this;
+  }
+  dequeue() {
+    if (!this.size) return null;
+    if (this.last === this.first) {
+      this.last = null;
+    }
+    this.last = this.last.next;
+    this.size--;
+    return this;
+  }
 }
 
 

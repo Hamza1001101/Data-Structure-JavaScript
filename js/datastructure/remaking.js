@@ -177,3 +177,5 @@ myLinkedList.push("Somali");
 //myLinkedList.pop();
 myLinkedList.get(2);
 console.log(myLinkedList.get(3));
+
+const se = [92, 3, 2, "4"];

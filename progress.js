@@ -70,12 +70,14 @@ class Stack {
     return this;
   }
   pop() {
-    if (!this.size) return null;
-    else if (this.top === this.bottom) {
-     this.bottom = null; 
+    if (!this.size) return undefined;
+
+    if (this.top === this.bottom) {
+      this.bottom = null;
     }
     this.top = this.top.next;
     this.size--;
+    return this;
   }
   peek() {
     return this.top;

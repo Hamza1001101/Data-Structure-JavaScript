@@ -25,4 +25,20 @@ class Queue {
     this.last = newNode;
     this.size++;
   }
+  //dequeu 
+  dequeu() {
+    if (this.isEmpty()) return null
+    const toBeRemoved = this.last
+    if (this.last === this.first) {
+      this.last= null       
+    }
+    this.last.next = this.last
+    this.size--
+    return toBeRemoved
+  }
 }
+
+const queue = new Queue()
+queue.enqueue('water')
+queue.enqueue('tea')
+queue.enqueue('vodka')

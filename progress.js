@@ -15,7 +15,7 @@ class Queue {
     return !this.size;
   }
   //enqueu
-  enqueu(item) {
+  enqueue(item) {
     const newNode = new Node(item);
     if (this.isEmpty()) {
       this.first = newNode;
@@ -23,22 +23,30 @@ class Queue {
     }
     this.last.next = newNode;
     this.last = newNode;
-    this.size++;
+    return this.size++;
   }
-  //dequeu 
-  dequeu() {
-    if (this.isEmpty()) return null
-    const toBeRemoved = this.last
+  //dequeu
+  dequeue() {
+    if (this.isEmpty()) return null;
+    const toBeRemoved = this.last;
     if (this.last === this.first) {
-      this.last= null       
+      this.last = null;
     }
-    this.last.next = this.last
-    this.size--
-    return toBeRemoved
+    this.first = this.first.next;;;
+    this.size--;;
+    return toBeRemoved;
+  }
+  //peek
+  peek() {
+    return this.first;
   }
 }
 
 const queue = new Queue()
 queue.enqueue('water')
 queue.enqueue('tea')
-queue.enqueue('vodka')
+queue.enqueue("Vodka");
+const popped = queue.dequeue();
+console.log(queue.peek());
+
+console.log(`object`, popped) 

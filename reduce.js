@@ -246,8 +246,8 @@ console.log(myStack.peek());
 /**
  * * Don't build queues with arrays. Its O(n)
  * * Better is to use LinkedList because O(1)
+ * * creates a Queue class to store the elements/nodes of the Queue
  */
-//creates a Queue class to store the elements/nodes of the Queue
  class Queue {
    constructor() {
      this.first = null;

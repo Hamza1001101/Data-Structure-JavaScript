@@ -49,3 +49,18 @@ const last = ss.pop();
 
 console.log(ss.peek());
 //console.log(`object`, last);
+
+const stackFactory = () => {
+  const stack = [];
+  return {
+    push(item) {
+      return stack.push(item);
+    },
+    pop() {
+      return stack.pop();
+    },
+    peek() {
+      return stack[stack.length - 1];
+    },
+  };
+};

@@ -19,9 +19,20 @@ class Stack {
       this.bottom = newNode;
       this.top = newNode;
     }
-    const holderPointer = this.last;
-    this.last = newNode;
-    this.last.next = holderPointer;
+    const holderPointer = this.top;
+    this.top = newNode;
+    this.top.next = holderPointer;
     this.size++;
-  }
+    }
+    
+    peek() {
+        return this.top
+    }
 }
+
+const ss = new Stack()
+ss.push('mobile')
+ss.push('sushi')
+ss.push('phonenumber')
+
+console.log(ss.peek())

@@ -160,8 +160,12 @@ class Queue {
 
 const qu = new Queue();
 qu.push("soda");
-qq.push("fanta");
-qq.push("water");
-qq.push("cola");
+qu.push("fanta");
+qu.push("water");
+qu.push("cola");
+qq.pop();
+let lastNode = qu.pop();
 
-console.log(qq.peek());
+console.log(qu.peek());
+
+console.log(lastNode);

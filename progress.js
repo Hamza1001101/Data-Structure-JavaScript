@@ -130,7 +130,7 @@ class Queue {
     this.length = 0;
   }
   isEmpty() {
-    return !this.length
+    return !this.length;
   }
   push(value) {
     const newNode = new Node(value);
@@ -142,6 +142,16 @@ class Queue {
     this.last.next = newNode;
     this.last = newNode;
     this.length++;
+  }
+  pop() {
+    if (this.isEmpty()) return null;
+    const nodeTobeRemoved = this.first;
+    if (this.first === this.last) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+    this.length--;
+    return nodeTobeRemoved;
   }
 }
 

@@ -1,13 +1,87 @@
+console.log("hello world");
+
 class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
   }
 }
+
+class LinkedList {
+  constructor() {
+    this.tail = null;
+    this.head = null;
+    this.length = 0;
+  }
+  isEmpty() {
+    return !this.length;
+  }
+  push(item) {
+    const newNode = new Node(item);
+    if (this.isEmpty()) {
+      this.tail = newNode;
+      this.head = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
+    this.length++;
+  }
+  pop() {
+    if (this.isEmpty()) return null;
+    if (this.length === 1) {
+      const nodeTobeRemoved = this.head;
+      this.tail = null;
+      this.head = null;
+      this.length--;
+      return nodeTobeRemoved;
+    } else {
+      let current = this.head;
+      let nodeTobeRemoved = this.tail;
+      let secondToRemove;
+
+      while (current) {
+        if ((current.next = this.tail)) {
+          secondToRemove = current.next;
+          break;
+        }
+        current = current.next;
+      }
+      secondToRemove.next = null;
+      this.tail = secondToRemove;
+      this.length--;
+      return nodeTobeRemoved;
+    }
+  }
+  get(index) {
+    if (index < 0 || index > this.length || this.isEmpty()) {
+      return null;
+    }
+    if (index === 0) return this.head;
+    if (index === this.length - 1) return this.tail;
+
+    let currentNode = this.head;
+    let iterator = 0;
+    while (iterator < index) {
+      iterator++;
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+}
+const ll = new LinkedList();
+ll.push("english");
+ll.push("svenskan");
+ll.push("portugal");
+ll.push("somali");
+
+ll.pop();
+console.log(ll.get(1));
+
 class Stack {
   constructor() {
-    this.top = null;
-    this.bottom = null;
+    this.last = null;
+    this.first = null;
     this.size = 0;
   }
   isEmpty() {
@@ -16,51 +90,34 @@ class Stack {
   push(item) {
     const newNode = new Node(item);
     if (this.isEmpty()) {
-      this.bottom = newNode;
-      this.top = newNode;
-    } else {
-      const holderPointer = this.top;
-      this.top = newNode;
-      this.top.next = holderPointer;
+      this.first = newNode;
+      this.last = newNode;
     }
+    const holderPointer = this.last;
+    this.last = newNode;
+    this.last.next = holderPointer;
     this.size++;
   }
   pop() {
     if (this.isEmpty()) return null;
-    const nodeToRemove = this.top;
-    if (this.bottom === this.top) {
-      this.bottom = null;
+    const nodeTobeRemoved = this.last;
+    if (this.last === this.first) {
+      this.last = null;
     }
-    this.top = this.top.next;
+    this.last = this.last.next;
     this.size--;
-    return nodeToRemove;
+    return nodeTobeRemoved;
   }
   peek() {
-    return this.top;
+    return this.last;
   }
 }
+const st = new Stack();
+st.push("mobile");
+st.push("email");
+st.push("sleep");
 
-const ss = new Stack();
-ss.push("mobile");
-ss.push("sushi");
-ss.push("phonenumber");
+let last = st.pop();
+console.log(st.peek());
 
-const last = ss.pop();
-
-console.log(ss.peek());
-//console.log(`object`, last);
-
-const stackFactory = () => {
-  const stack = [];
-  return {
-    push(item) {
-      return stack.push(item);
-    },
-    pop() {
-      return stack.pop();
-    },
-    peek() {
-      return stack[stack.length - 1];
-    },
-  };
-};
+console.log(last);

@@ -163,9 +163,9 @@ qu.push("soda");
 qu.push("fanta");
 qu.push("water");
 qu.push("cola");
-qq.pop();
+qu.pop();
 let lastNode = qu.pop();
 
 console.log(qu.peek());
 
-console.log(lastNode);
+console.log("lastnode", lastNode);

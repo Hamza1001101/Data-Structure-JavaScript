@@ -121,3 +121,7 @@ let last = st.pop();
 console.log(st.peek());
 
 console.log(last);
+
+
+
+

@@ -129,5 +129,11 @@ class Queue {
     this.last = null;
     this.length = 0;
   }
+  isEmpty() {
+    return !this.length
+  }
+  push(value) {
+    
+  }
 }
 

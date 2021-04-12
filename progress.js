@@ -133,7 +133,15 @@ class Queue {
     return !this.length
   }
   push(value) {
-    
+    const newNode = new Node(value);
+
+    if (this.isEmpty()) {
+      this.first = newNode;
+      this.last = newNode;
+    }
+    this.last.next = newNode;
+    this.last = newNode;
+    this.length++;
   }
 }
 

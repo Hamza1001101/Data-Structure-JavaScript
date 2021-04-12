@@ -153,5 +153,15 @@ class Queue {
     this.length--;
     return nodeTobeRemoved;
   }
+  peek() {
+    return this.first;
+  }
 }
 
+const qu = new Queue();
+qu.push("soda");
+qq.push("fanta");
+qq.push("water");
+qq.push("cola");
+
+console.log(qq.peek());

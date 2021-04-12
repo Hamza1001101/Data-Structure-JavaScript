@@ -123,5 +123,11 @@ console.log(st.peek());
 console.log(last);
 
 
-
+class Queue {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.length = 0;
+  }
+}
 

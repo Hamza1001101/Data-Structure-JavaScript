@@ -1,5 +1,5 @@
 /**
- * * Bubble Sort
+ * * MergeSort O(n log n)
  */
 
 const mergeSort = (arr) => {
@@ -26,3 +26,8 @@ const merge = (left, right) => {
 const arr = [3, 52, 1, 432, 1, 32, -4, 2];
 
 console.log(mergeSort(arr));
+
+/**
+ * * Quick sort  O(n log n)
+ */
+

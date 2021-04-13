@@ -2,7 +2,7 @@
  * * Bubble Sort
  */
 
-function mergeSort(arr) {
+const mergeSort = (arr) => {
   if (arr.length < 2) {
     return arr;
   }
@@ -10,8 +10,8 @@ function mergeSort(arr) {
   const left = arr.slice(0, middle);
   const right = arr.slice(middle);
   return merge(mergeSort(left), mergeSort(right));
-}
-function merge(left, right) {
+};
+const merge = (left, right) => {
   const sorted = [];
   while (left.length && right.length) {
     if (left[0] <= right[0]) {
@@ -22,7 +22,7 @@ function merge(left, right) {
   }
   let results = [...sorted, ...left, ...right];
   return results;
-}
+};
 const arr = [3, 52, 1, 432, 1, 32, -4, 2];
 
 console.log(mergeSort(arr));

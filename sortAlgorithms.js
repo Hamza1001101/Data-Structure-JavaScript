@@ -1,3 +1,23 @@
+console.log("helo");
+
+animals = [
+  {
+    type: "Dog",
+    mammal: true,
+  },
+  {
+    type: "Snake",
+    mammal: false,
+  },
+  {
+    type: "Cheetah",
+    mammal: true,
+  },
+];
+
+const mammals = animals.filter((animal) => animal.mammal);
+
+console.log(mammals);
 /**
  * * MergeSort O(n log n)
  */
@@ -46,4 +66,3 @@ const quickSort = (arr) => {
 };
 
 console.log("*************");
-console.log(quickSort(arr));

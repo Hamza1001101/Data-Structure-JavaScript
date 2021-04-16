@@ -114,5 +114,10 @@ const permutaions = (str) => {
  */
 
 let buffer = new ArrayBuffer(4);
-
 console.log(buffer.byteLength);
+
+if (buffer.byteLength === 16) {
+  console.log("Yes, it's 16 bytes.");
+} else {
+  console.log("Oh no, it's the wrong size!");
+}

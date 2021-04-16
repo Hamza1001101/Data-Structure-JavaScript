@@ -109,6 +109,10 @@ const permutaions = (str) => {
   return results;
 };
 
+/**
+ * * Creating a fixed array length
+ */
+
 let buffer = new ArrayBuffer(4);
 
 console.log(buffer.byteLength);

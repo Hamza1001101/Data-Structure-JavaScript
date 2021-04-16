@@ -108,3 +108,7 @@ const permutaions = (str) => {
   }
   return results;
 };
+
+let buffer = new ArrayBuffer(4);
+
+console.log(buffer.byteLength);

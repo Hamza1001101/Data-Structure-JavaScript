@@ -78,7 +78,7 @@ ll.push("somali");
 ll.pop();
 console.log(ll.get(1));
 
-class Stack {
+class Queue {
   constructor() {
     this.last = null;
     this.first = null;
@@ -87,70 +87,26 @@ class Stack {
   isEmpty() {
     return !this.size;
   }
-  push(item) {
-    const newNode = new Node(item);
-    if (this.isEmpty()) {
-      this.first = newNode;
-      this.last = newNode;
-    }
-    const holderPointer = this.last;
-    this.last = newNode;
-    this.last.next = holderPointer;
-    this.size++;
-  }
-  pop() {
-    if (this.isEmpty()) return null;
-    const nodeTobeRemoved = this.last;
-    if (this.last === this.first) {
-      this.last = null;
-    }
-    this.last = this.last.next;
-    this.size--;
-    return nodeTobeRemoved;
-  }
-  peek() {
-    return this.last;
-  }
-}
-const st = new Stack();
-st.push("mobile");
-st.push("email");
-st.push("sleep");
-
-let last = st.pop();
-console.log(st.peek());
-
-console.log(last);
-
-
-class Queue {
-  constructor() {
-    this.first = null;
-    this.last = null;
-    this.length = 0;
-  }
-  isEmpty() {
-    return !this.length;
-  }
+  //enqueue
   enqueue(value) {
     const newNode = new Node(value);
-
     if (this.isEmpty()) {
-      this.first = newNode;
       this.last = newNode;
+      this.first = newNode;
     }
     this.last.next = newNode;
     this.last = newNode;
-    this.length++; 
+    this.size++;
   }
+  //dequeue
   dequeue() {
     if (this.isEmpty()) return null;
     const nodeTobeRemoved = this.first;
-    if (this.first === this.last) {
+    if (this.last === this.first) {
       this.last = null;
     }
     this.first = this.first.next;
-    this.length--;
+    this.size--;
     return nodeTobeRemoved;
   }
   peek() {
@@ -158,15 +114,61 @@ class Queue {
   }
 }
 
-const qu = new Queue();
-qu.enqueue("soda");
-qu.enqueue("fanta");
-qu.enqueue("water");
-qu.enqueue("cola");
-qu.dequeue();
+const qq = new Queue();
+qq.enqueue("water");
+qq.enqueue("tea");
+qq.enqueue("coffe");
 
-qu.dequeue();
-qu.dequeue();
-let lastNode = qu.dequeue();
-console.log(qu.peek());
-console.log(lastNode);
+qq.dequeue();
+console.log(qq.peek());
+
+class Stack {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.sizé = 0;
+  }
+
+  isEmpty() {
+    return !this.sizé;
+  }
+  push(item) {
+    const newNode = new Node(item);
+    if (this.isEmpty()) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      const holderPointer = this.last;
+      this.last = newNode;
+      this.last.next = holderPointer;
+    }
+    this.sizé++;
+  }
+  peek() {
+    return this.last;
+  }
+  pop() {
+    if (this.isEmpty()) return null;
+    const nodeTobeRemoved = this.last;
+    if (this.last === this.first) {
+      this.first = null;
+    }
+    this.last = this.last.next;
+    this.sizé--;
+    return nodeTobeRemoved;
+  }
+}
+
+const st = new Stack();
+st.push("mobile");
+st.push("computer");
+st.push("desktop");
+st.push("screen");
+
+st.pop();
+
+st.pop();
+st.pop();
+st.pop();
+
+console.log(st.peek());

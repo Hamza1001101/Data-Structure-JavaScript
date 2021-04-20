@@ -69,10 +69,11 @@ class Stack {
     if (this.isEmpty()) {
       this.first = newNode;
       this.last = newNode;
+    } else {
+      const holderPointer = this.last;
+      this.last = newNode;
+      this.last.next = holderPointer;
     }
-    const holderPointer = this.last;
-    this.last = newNode;
-    this.last.next = holderPointer;
     this.sizé++
   }
   peek() {
@@ -82,7 +83,7 @@ class Stack {
     if (this.isEmpty()) return null;
     const nodeTobeRemoved = this.last;
     if (this.last === this.first) {
-      this.last = null;
+      this.first = null;
     }
     this.last = this.last.next;
     this.sizé--;
@@ -96,9 +97,13 @@ st.push("computer");
 st.push("desktop");
 st.push("screen");
 
-st.pop()
-st.pop()
-st.pop()
-st.pop()
+
+st.pop();
+
+st.pop();
+st.pop();
+st.pop();
+
+
 
 console.log(st.peek());

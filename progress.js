@@ -166,7 +166,7 @@ qu.enqueue("cola");
 qu.dequeue();
 
 qu.dequeue();
-qu.pop(); 
-let lastNode = qu.pop();
+qu.dequeue();
+let lastNode = qu.dequeue();
 console.log(qu.peek());
 console.log(lastNode);

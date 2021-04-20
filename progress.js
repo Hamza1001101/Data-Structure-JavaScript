@@ -132,7 +132,7 @@ class Queue {
   isEmpty() {
     return !this.length;
   }
-  push(value) {
+  enqueue(value) {
     const newNode = new Node(value);
 
     if (this.isEmpty()) {
@@ -143,7 +143,7 @@ class Queue {
     this.last = newNode;
     this.length++; 
   }
-  pop() {
+  dequeue() {
     if (this.isEmpty()) return null;
     const nodeTobeRemoved = this.first;
     if (this.first === this.last) {
@@ -159,8 +159,8 @@ class Queue {
 }
 
 const qu = new Queue();
-qu.push("soda");
-qu.push("fanta");
+qu.enqueue("soda");
+qu.enqueue("fanta");
 qu.push("water");
 qu.push("cola");
 qu.pop();

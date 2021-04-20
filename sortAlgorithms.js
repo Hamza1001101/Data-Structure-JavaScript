@@ -1,123 +1,104 @@
-console.log("helo");
+console.log("hello");
 
-animals = [
-  {
-    type: "Dog",
-    mammal: true,
-  },
-  {
-    type: "Snake",
-    mammal: false,
-  },
-  {
-    type: "Cheetah",
-    mammal: true,
-  },
-];
-
-const mammals = animals.filter((animal) => animal.mammal);
-
-console.log(mammals);
-/**
- * * MergeSort O(n log n)
- */
-
-const mergeSort = (arr) => {
-  if (arr.length < 2) {
-    return arr;
+class Node {
+  constructor(value) {
+    this.node = value;
+    this.next = null;
   }
-  const middle = Math.floor(arr.length / 2);
-  const left = arr.slice(0, middle);
-  const right = arr.slice(middle);
-  return merge(mergeSort(left), mergeSort(right));
-};
-const merge = (left, right) => {
-  const sorted = [];
-  while (left.length && right.length) {
-    if (left[0] <= right[0]) {
-      sorted.push(left.shift());
-    } else {
-      sorted.push(right.shift());
-    }
-  }
-  let results = [...sorted, ...left, ...right];
-  return results;
-};
-const arr = [3, 52, 1, 432, 1, 32, -4, 2];
-
-console.log(mergeSort(arr));
-
-/**
- * * Quick sort  O(n log n)
- */
-
-const quickSort = (arr) => {
-  if (arr.length < 2) return arr;
-  let pivotIndex = Math.floor(arr.length / 2);
-  let pivot = arr[pivotIndex];
-  let less = [];
-  let greater = [];
-  for (let i in arr) {
-    if (i !== pivotIndex) {
-      arr[i] > pivot ? greater.push(arr[i]) : less.push(arr[i]);
-    }
-  }
-  return [...quickSort(less), pivot, ...quickSort(greater)];
-};
-
-console.log("*************");
-
-
-
-const detectSubstring = (str, subStr) => {
-  let idxOfStart = 0;
-  let j = 0;
-
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] === subStr[j]) {
-      j++;
-      if (j === subStr.length) {
-        return i - (subStr.length - 1);
-      }
-    } else {
-      i -= j;
-      j = 0;
-    }
-  }
-  return -1;
-};
-
-/**
- * * All possible permutaions in strings
- */
-
-const permutaions = (str) => {
-  let results = [];
-
-  if (str.length == 1) {
-    return [str];
-  }
-
-  for (let i = 0; i < str.length; i++) {
-    const first = str[i];
-    const charsRemaining = str.substring(0, i) + str.substring(i + 1);
-    const remainingPerms = permutations(charsRemaining);
-    for (let j = 0; j < remainingPerms.length; j++) {
-      results.push(first + remainingPerms[j]);
-    }
-  }
-  return results;
-};
-
-/**
- * * Creating a fixed array length
- */
-
-let buffer = new ArrayBuffer(4);
-console.log(buffer.byteLength);
-
-if (buffer.byteLength === 16) {
-  console.log("Yes, it's 16 bytes.");
-} else {
-  console.log("Oh no, it's the wrong size!");
 }
+
+class Queue {
+  constructor() {
+    this.last = null;
+    this.first = null;
+    this.size = 0;
+  }
+  isEmpty() {
+    return !this.size;
+  }
+  //enqueue
+  enqueue(value) {
+    const newNode = new Node(value);
+    if (this.isEmpty()) {
+      this.last = newNode;
+      this.first = newNode;
+    }
+    this.last.next = newNode;
+    this.last = newNode;
+    this.size++;
+  }
+  //dequeue
+  dequeue() {
+    if (this.isEmpty()) return null;
+    const nodeTobeRemoved = this.first;
+    if (this.last === this.first) {
+      this.last = null;
+    }
+    this.first = this.first.next;
+    this.size--;
+    return nodeTobeRemoved;
+  }
+  peek() {
+    return this.first;
+  }
+}
+
+const qq = new Queue();
+qq.enqueue("water");
+qq.enqueue("tea");
+qq.enqueue("coffe");
+
+qq.dequeue();;
+console.log(qq.peek());
+
+
+
+
+class Stack {
+  constructor() {
+    this.first = null;
+    this.last = null;
+    this.sizé = 0;
+  }
+
+  isEmpty() {
+    return !this.sizé;
+  }
+  push(item) {
+    const newNode = new Node(item);
+    if (this.isEmpty()) {
+      this.first = newNode;
+      this.last = newNode;
+    }
+    const holderPointer = this.last;
+    this.last = newNode;
+    this.last.next = holderPointer;
+    this.sizé++
+  }
+  peek() {
+    return this.last;
+  }
+  pop() {
+    if (this.isEmpty()) return null;
+    const nodeTobeRemoved = this.last;
+    if (this.last === this.first) {
+      this.last = null;
+    }
+    this.last = this.last.next;
+    this.sizé--;
+    return nodeTobeRemoved;
+  }
+}
+
+const st = new Stack();
+st.push("mobile");
+st.push("computer");
+st.push("desktop");
+st.push("screen");
+
+st.pop()
+st.pop()
+st.pop()
+st.pop()
+
+console.log(st.peek());

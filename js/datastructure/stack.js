@@ -10,7 +10,7 @@ function createStack() {
   const arrayStack = [];
 
   /**
-   * The order of our items is important here
+   * The order of our items is important here 
    **/
   return {
     //Append new element to the array

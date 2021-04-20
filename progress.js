@@ -141,7 +141,7 @@ class Queue {
     }
     this.last.next = newNode;
     this.last = newNode;
-    this.length++;
+    this.length++; 
   }
   pop() {
     if (this.isEmpty()) return null;

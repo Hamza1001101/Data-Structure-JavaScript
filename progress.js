@@ -161,11 +161,11 @@ class Queue {
 const qu = new Queue();
 qu.enqueue("soda");
 qu.enqueue("fanta");
-qu.push("water");
-qu.push("cola");
-qu.pop();
+qu.enqueue("water");
+qu.enqueue("cola");
+qu.dequeue();
 
-qu.pop();
+qu.dequeue();
 qu.pop(); 
 let lastNode = qu.pop();
 console.log(qu.peek());

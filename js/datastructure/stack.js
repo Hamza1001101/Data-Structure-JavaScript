@@ -41,4 +41,6 @@ gettingReady.push("brush teeth");
 gettingReady.push("take a shower");
 
 gettingReady.pop();
+gettingReady.pop();
+
 console.log(gettingReady.peek());

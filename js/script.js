@@ -181,10 +181,11 @@ function sumTwo(numbers, target) {
  */
 
 const filterOut = (arr) => {
+  //*sort first
   arr = arr.sort((a, b) => a - b);
   return arr.filter(
     (item, i) => !(arr[i] === arr[i + 1] || arr[i] === arr[i - 1])
   );
 };
-
+ 
 

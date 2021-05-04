@@ -189,3 +189,31 @@ const filterOut = (arr) => {
 };
  
 
+const zigZagTraversal = (root) => {
+  let result = [];
+  let list = [];
+  let dir = true;
+  if (root) {
+    list.push(root);
+    while (list.length > 0) {
+      let currentLevelSize = list.length;
+      let currentLevel = [];
+      for (let i = 0; i < currentLevelSize; i++) {
+        let currentNode = list.shift();
+        currentLevel.push(currentNode.val);
+        if (currentNode.left) {
+          list.push(currentNode.left);
+        }
+        if (currentNode.right) {
+          list.push(currentNode.right);
+        }
+      }
+      if (!dir) {
+        currentLevel.reverse();
+      }
+      result.push(currentLevel);
+      dir = !dir;
+    }
+  }
+  return result;
+};

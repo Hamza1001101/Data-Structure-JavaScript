@@ -30,3 +30,37 @@ console.log(unCap('the quick brown fox'))
 let somevar = new String('hello')
 
 console.log(typeof somevar)
+
+
+/**
+ * * Destructuring and Rest operators
+ */
+
+const game = {};
+
+game["weapons"] = [
+  {
+    type: "lasers",
+    location: "lab",
+  },
+  {
+    type: "angry cats",
+    location: "libray",
+  },
+];
+
+console.log(game.weapons);
+
+const [{ location: loc1 }, { location: loc2 }] = game.weapons;
+
+console.log(loc1 + " and " + loc2);
+
+const arr = ["somalia", "spain", "sri lanka", "sudan", "south africa"];
+
+const [c1, c2, c3, ...rest] = arr;
+
+console.log(c1, c2, c3);
+
+console.log(rest);
+
+console.log(`object`, arr);   

@@ -17,16 +17,8 @@ class LinkedList {
     return !this.length;
   }
   push(item) {
-    const newNode = new Node(item);
-    if (this.isEmpty()) {
-      this.tail = newNode;
-      this.head = newNode;
-    } else {
-      this.tail.next = newNode;
-      this.tail = newNode;
-    }
-    this.length++;
-  }
+   const newNode = new Node(item)
+ }
   pop() {
     if (this.isEmpty()) return null;
     if (this.length === 1) {

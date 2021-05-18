@@ -17,7 +17,11 @@ class LinkedList {
     return !this.length;
   }
   push(item) {
-   const newNode = new Node(item)
+    const newNode = new Node(item);
+    if (this.isEmpty()) {
+      this.head = newNode;
+      this.tail = newNode;
+    }
  }
   pop() {
     if (this.isEmpty()) return null;

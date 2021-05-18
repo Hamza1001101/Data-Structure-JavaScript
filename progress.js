@@ -21,7 +21,11 @@ class LinkedList {
     if (this.isEmpty()) {
       this.head = newNode;
       this.tail = newNode;
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
     }
+    this.length++;
  }
   pop() {
     if (this.isEmpty()) return null;

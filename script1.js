@@ -64,3 +64,8 @@ console.log(c1, c2, c3);
 console.log(rest);
 
 console.log(`object`, arr);   
+
+/**
+ * * Objects
+ */
+

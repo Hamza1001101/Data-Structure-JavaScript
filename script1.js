@@ -82,3 +82,27 @@ let person = { age: 299 };
 let person1 = person;
 person1.age = 43;
 console.log(person);
+
+let user = {
+  name: "Hamza",
+  age: 30,
+  email: "dado.org@hotmail.com",
+  location: "berlin",
+  blog: ["why mac and cheese", "10things to make marmite"],
+};
+
+let user1 = user;
+console.log(user1.age);
+user.age = 32;
+console.log(user.age);
+
+console.log(user1.age);
+
+const arr = [2, 4];
+const arr1 = [...arr];
+
+console.log(arr1);
+
+arr.push("somalia");
+
+console.log(arr1);

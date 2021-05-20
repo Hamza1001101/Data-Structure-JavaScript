@@ -106,3 +106,16 @@ console.log(arr1);
 arr.push("somalia");
 
 console.log(arr1);
+
+/**
+ * * Be aware with boolean statements when dealing with reference datatypes
+ * ! (Objects & Arrays)
+ * 
+ * * This is going to yeild false, since these are two totally different
+ * * Objects. 
+ */
+
+const person1 = { age: 30 };
+const person2 = { age: 30 };
+
+console.log(person1 === person2);

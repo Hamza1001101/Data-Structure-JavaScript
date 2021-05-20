@@ -72,3 +72,13 @@ console.log(`object`, arr);
 //Check if rgb is an instance of Array objects. 
 let rgb = ['red', 'green', 'blue']
 console.log(rgb instanceof Array)
+
+
+/**
+ * * Primitive and Reference Data types
+ */
+
+let person = { age: 299 };
+let person1 = person;
+person1.age = 43;
+console.log(person);

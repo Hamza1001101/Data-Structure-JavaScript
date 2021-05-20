@@ -69,3 +69,6 @@ console.log(`object`, arr);
  * * Objects
  */
 
+//Check if rgb is an instance of Array objects. 
+let rgb = ['red', 'green', 'blue']
+console.log(rgb instanceof Array)

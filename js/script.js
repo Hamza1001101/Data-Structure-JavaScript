@@ -132,7 +132,7 @@ const letters = [...str, "Mohamed"];
 console.log(letters);
 
 /**
- * *The rest patter.
+ * *The rest pattern.
  *  * It uses the same syntax as spread operator but
  *  * it functions the opposite way of spread operator
  */

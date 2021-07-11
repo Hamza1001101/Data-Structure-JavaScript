@@ -52,3 +52,4 @@ const majorityElement2 = (arr) => {
 };
 console.log(majorityElement2([1, 4, 2, 4, 4, 3, 4]));
 console.log(majorityElement2([1, 1, 1, 4, 2, 4, 4, 3, 1, 1, 1]));
+
